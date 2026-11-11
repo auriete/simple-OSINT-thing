@@ -61,7 +61,7 @@ function whois_func() {
                     var iframe = document.createElement('iframe');
                     iframe.title = "IP location map";
                     iframe.style = 'border:0; width:100%; height:100%;';
-                    iframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBUAFbRn2rZa1BnQeaoQYYAJOtoF3-yRgU&q=${data.latitude},${data.longitude}`;
+                    iframe.src = `https://www.google.com/maps/embed/v1/place?key=[KEY_HIDDEN]&q=${data.latitude},${data.longitude}`;
                     iframe.allowFullscreen = true;
                     map.appendChild(iframe);
                 }

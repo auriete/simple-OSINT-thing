@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>WHOIS IP Lookup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../static/script.js"></script>
+
+    <style>
+        .navbar-brand:focus {
+          outline: none;
+        }
+
+        #addr {
+          width: 30vw;
+          height: 3vh;
+          border-radius: 10px;
+          min-height: 35px;
+        }
+
+        #submit_whois {
+          width: 5vw;
+          height: 3vh;
+          min-height: 35px;
+          min-width: fit-content;
+        }
+
+        #map iframe {
+          height: 99%;
+          width:20vw;
+        }
+
+        #map {          
+          height: 35vh;
+          width: 20vw;
+        }
+
+
+        #info {
+          width:75vw;
+          height:35vw;
+        }
+
+        #data {
+          max-width: fit-content;
+          max-height: fit-content;
+        }
+
+        #json {
+          width: 10vw;
+        }
+    </style>
+  </head>   
+
+
+  <body onload="whois_func()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/domain">Domain Scanner</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="/domain">Domain</a>
+          <a class="nav-link" href="/shodan">Shodan</a>
+          <a class="nav-link active" href="/whois">WHOIS</a>
+          <a class="nav-link" href="/malscan">Malware</a>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="d-flex justify-content-center align-items-center flex-column" id="content-holder">
+
+      <form action="/whois_scan" method="POST" class="my-5" id="whois_form">
+        <input type="text" name="addr" id="addr" placeholder="Enter an IP address..." class="form-control d-inline-block mx-1" aria-label="IP address">
+        <button name="whois" type="submit" id="submit_whois" class="btn btn-primary mx-1">Submit</button>
+      </form>
+
+      <div class="d-flex container-fluid mx-0 px-0 border border-dark rounded-3 justify-content-center align-items-center position-relative flex-row" id="info">
+
+        <div class="container-fluid mx-5 px-0" id="map">
+        </div>
+        
+        <div class="container-fluid mx-0 px-0" id="data">
+          <pre id="json" class="text-wrap"></pre>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+

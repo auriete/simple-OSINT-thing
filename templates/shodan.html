@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>Shodan IP Scan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../static/script.js"></script>
+
+    <style>
+        .navbar-brand:focus {
+          outline: none;
+        }
+
+        #IP {
+          width: 30vw;
+          height: 3vh;
+          border-radius: 10px;
+          min-height: 35px;
+        }
+
+        #submit_shodan {
+          width: 5vw;
+          height: 3vh;
+          min-height: 35px;
+          min-width: fit-content;
+        }
+
+        #info {
+          width: 60vw;
+          min-height: 30vw;
+        }
+
+        #data {
+          max-width: fit-content;
+          height: 100%;
+        }
+
+  
+
+    </style>
+  </head>   
+
+
+  <body class="position-relative" onload="shodan_func()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/domain">Domain Scanner</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="/domain">Domain</a>
+          <a class="nav-link active" href="/shodan">Shodan</a>
+          <a class="nav-link" href="/whois">WHOIS</a>
+          <a class="nav-link" href="/malscan">Malware</a>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="d-flex justify-content-center align-items-center flex-column" id="content-holder">
+      <form action="/shodan_scan" method="POST" class="my-5" id="shodan_form">
+        <input type="text" name="IP" id="IP" placeholder="Enter an IP..." class="form-control d-inline-block mx-1" aria-label="IP address">
+        <button name="shodan" type="submit" id="submit_shodan" class="btn btn-primary mx-1">Submit</button>
+      </form>
+
+      <div class="container-fluid mx-0 border border-dark rounded-3" id="info">
+        <div class="container-fluid mx-0" id="data">
+          <pre id="json" class="text-wrap"></pre>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

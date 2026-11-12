@@ -56,7 +56,7 @@ def domain_query(domain: str):
 
 def malware_scan(target: str):
     try:
-        VT_KEY = "1a7cf235dd302c64b2d93b2d482dfc5a3555df1d16d9a51ce72a3d2850b7a120"
+        VT_KEY = "[REMOVED KEY]"
         c = vt.Client(VT_KEY)
 
         analysis = c.scan_url(url=target)
